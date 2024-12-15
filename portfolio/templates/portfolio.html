@@ -1,0 +1,317 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static "style.css" %}">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" 
+    rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <title>Portfolio</title>
+</head>
+<body>
+
+    <!-- home section start here -->
+    <header class="py-4  max-w-[1350px]" >
+        <div class="container ">
+            <h1 class="font-black text-4xl ml-8">PORTFOLIO.</h1>
+            
+            <nav>
+                <span class="menu" onclick="nav();">&#9776;</span>
+                <span class="menu-end">&#10006;</span>
+            
+                <ul class="list" class="ml-6">
+                <li><a href="">HOME</a></li>
+                <li><a href="#about">ABOUT</a></li>
+                <li><a href="#projects">PROJECTS</a></li>
+                <li><a href="#skills">SKILLS</a></li>
+                <li class="bg-yellow-300 py-1 rounded px-4  " ><a href="#contact" >CONTACT US</a></li>
+                </ul>
+                
+            </nav>
+        </div>
+    </header>
+    <div>
+        <ul class="list-less">
+            <li class="list">HOME</li>
+            <li class="list"><a href="#about">ABOUT</a></li>
+            <li class="list"><a href="#projects">PROJECTS</a></li>
+            <li class="list"><a href="#skills">SKILLS</a></li>
+            <li class="list"><a href="#contact">CONTACT US</a></li>
+            </ul>
+            </div>
+
+
+<!-- after navbar imge area  -->
+            <div 
+            class="h-[600px] w-full  bg-cover bg-center relative" 
+            style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGlpqp2h-Yi1-sODY5gxoX1Cd77LttfEwt1g&s');">
+            <!-- Content here -->
+
+
+            <div class="absolute inset-0 flex sm:justify-center lg:justify-start items-center lg:ml-[150px] md:ml-[100px] ">
+                <div class="text-center font-semibold text-gray-800">
+                    <div id="line-1" class="hidden text-2xl"></div>
+                    <div id="line-2" class="hidden text-4xl"></div>
+                    <div id="line-3" class="hidden text-2xl bg-yellow-300 inline-block px-2 py-3 mt-4"></div>
+                </div>
+            </div>
+           
+          </div>
+
+          <!-- home section ends here -->
+<!-- about section starts her -->
+<div id="about" class=" bg-gray-200" >
+    <!-- <div class="text-4xl font-black text-center py-8 pt-16">ABOUT</div> -->
+<div class="flex max-w-[1350px] mx-auto  flex-col md:flex-row bg-gray-200 py-4" >
+    <!-- left side -->
+     <div class="basis-[40%]"  data-aos="fade-up">
+    <div class="flex justify-center mt-4  ">
+        <div class="rounded-[10px] overflow-hidden">
+            <img src="{% static "images/WhatsApp Image 2024-08-27 at 05.31.41_731401c7.jpg" %}" alt="" class="max-w-[25vw]"> 
+        </div>
+    </div>
+</div>
+
+    <!-- right side -->
+    <div class="basis-[60%] p-8" data-aos="fade-left"
+    
+    data-aos-offset="500"
+    data-aos-duration="500">
+        <h1 class="font-medium ml-4">WHO AM I</h1>
+        <h1 class="text-6xl font-bold pl-4 mb-4 " >HELLO</h1>
+        <p class="px-4">
+            As a passionate Full Stack Web Developer, I specialize in building dynamic, user-friendly, and robust web applications that bring ideas to life. With a strong foundation in both front-end and back-end technologies, I craft seamless digital experiences by combining cutting-edge tools with innovative design principles.
+        </p>
+        <p class="px-4">
+            On the front end, I excel in creating responsive and visually appealing interfaces using modern frameworks like React, Angular, or Vue.js, alongside clean HTML, CSS, and JavaScript. On the back end, I leverage my expertise in server-side languages such as Node.js, Python Django/Flask, or PHP to ensure smooth functionality and robust data handling. I am also proficient in database management, whether working with relational databases like MySQL or PostgreSQL or NoSQL solutions like MongoDB
+        </p>
+          <p class="px-4">
+            Collaboration is at the heart of my process; I thrive in team-oriented environments and enjoy problem-solving to deliver optimized solutions. Constantly learning and staying up-to-date with the latest technologies, I aim to build scalable and maintainable systems that enhance user satisfaction while driving business success.
+          </p>
+    </div>
+</div>
+</div>
+
+<!-- about section ends here -->
+</body>
+</html>
+
+
+           <!-- cards section start here -->
+     <div class=" bg-white py-2 " id="projects">
+        <div class="py-16">
+           <h1 class="text-6xl font-black text-center ">MY WORK</h1>
+           <p class="text-2xl font-black text-center py-2">AWESOME PROJECTS</p>
+           <P class="text-xl font-black text-center text-yellow-300">MUST CHEKOUT</P>
+        </div>
+   
+       
+       <main class=" min-h-screen flex items-center justify-center p-4 max-w-[1300px] mx-auto">
+           <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-1 gap-8 mx-16 mb-20">
+               <!-- Hover Effect Card 1 -->
+{% for value in data %}
+               <div class="w-full bg-yellow-200 pt-2 rounded-lg" data-aos="fade-up">
+                <div>
+                    <a href="/fullview/{{value.id}}" class="hover:text-gray-700"><h1 class="text-xl font-medium py-3 px-6">{{value.title}}</h1></a>
+                </div>
+                <hr> 
+                <div>
+                    <p class="py-4 px-6">{{value.description|truncatechars:400}} </p>
+                </div>
+
+            </div>
+            {% endfor %}
+               <!-- Hover Effect Card 3 -->
+              
+   <!-- cards end -->
+   
+           </div>
+       </main>
+   </div>
+       <!-- cards section ends here -->
+
+
+       <!-- skills section start -->
+        <div id="skills"> 
+            <h2 class="text-center  text-4xl font-bold  bg-gray-100 pb-8  pt-12 ">BEST SKILLS</h2>
+        </div>
+       <section class=" mx-auto bg-gray-100 p-8 rounded-lg ">
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-6 max-w-[1350px] mx-auto px-12 py-6">
+            <div class="flex flex-col items-center text-center py-8">
+                <svg class="w-16 h-16 text-blue-500 mb-2 animate-bounce  " xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                </svg>
+                <span class="font-semibold text-gray-600 text-xl">HTML</span>
+            </div>
+            <div class="flex flex-col items-center text-center">
+                <svg class="w-16 h-16  text-blue-500 mb-2 animate-bounce" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2-1M4 7l2 1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M18 18l2-1v-2.5" />
+                </svg>
+                <span class="font-semibold text-gray-600 text-xl">CSS</span>
+            </div>
+            <div class="flex flex-col items-center text-center">
+                <svg class="w-16 h-16  text-blue-500 mb-2 animate-bounce" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                </svg>
+                <span class="font-semibold text-gray-600 text-xl">Tailwind</span>
+            </div>
+            <div class="flex flex-col items-center text-center">
+                <svg class="w-16 h-16  text-blue-500 mb-2 animate-bounce" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+                <span class="font-semibold text-gray-600 text-xl">JavaScript</span>
+            </div>
+            <div class="flex flex-col items-center text-center">
+                <svg class="w-16 h-16  text-blue-500 mb-2 animate-bounce" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                </svg>
+                <span class="font-semibold text-gray-600 text-xl">Python</span>
+            </div>
+            <div class="flex flex-col items-center text-center">
+                <svg class="w-16 h-16  text-blue-500 mb-2 animate-bounce" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+                </svg>
+                <span class="font-semibold text-gray-600 text-xl">Django</span>
+            </div>
+            <div class="flex flex-col items-center text-center mt-4">
+                <svg class="w-16 h-16  text-blue-500 mb-2 animate-bounce" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
+                </svg>
+                <span class="font-semibold text-gray-600 text-xl">SQL</span>
+            </div>
+        </div>
+    </section>
+    <!-- skill section end here -->
+
+    <!-- contact form start here -->
+
+    <div class=" flex justify-center items-center min-h-screen " id="contact">
+        <div class="w-full max-w-lg bg-white p-8">
+          <h1 class="text-2xl font-bold text-gray-800 pb-16 text-center ">CONTACT US</h1>
+          <form action="#" method="POST">
+            {% csrf_token %}
+            <!-- Username -->
+            <div class="mb-4">
+              <label for="username" class="block text-gray-700 font-medium mb-2">Username</label>
+              <input 
+                type="text" 
+                id="username" 
+                name="username" 
+                placeholder="Enter your username" 
+                class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-yellow-400 focus:outline-none"
+                required
+              />
+            </div>
+            
+            <!-- Email -->
+            <div class="mb-4">
+              <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
+              <input 
+                type="email" 
+                id="email" 
+                name="email" 
+                placeholder="Enter your email" 
+                class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-yellow-400 focus:outline-none"
+                required
+              />
+            </div>
+            
+            <!-- Message -->
+            <div class="mb-4">
+              <label for="message" class="block text-gray-700 font-medium mb-2">Message</label>
+              <textarea 
+                id="message" 
+                name="message" 
+                rows="4" 
+                placeholder="Enter your message"
+                class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-yellow-400 focus:outline-none"
+                required
+              ></textarea>
+            </div>
+            
+            <!-- Submit Button -->
+            <div>
+              <button 
+                type="submit" class="w-full bg-yellow-300 text-gray-800 font-semibold py-2 rounded-md hover:bg-yellow-400 focus:ring-2 focus:ring-yellow-500 focus:outline-none"> Send</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    
+      
+
+
+       <!-- footer starts here
+   -->
+
+   <div class=" bg-black py-4 text-center gap-28">
+    <i class="fab fa-twitter fa-2x text-white hover:scale-125 hover:duration-1000 cursor-pointer"> </i></i>
+    <a href="https://www.linkedin.com/in/hassan-zahid-khan-546366301/"><i class="fab fa-linkedin-in fa-2x px-12  text-white hover:scale-125 hover:duration-1000  cursor-pointer"></i></a>
+    
+     <a href="https://github.com/Hassan-Zahid-Khan-1"><i class="fab fa-github fa-2x  text-white hover:scale-125 hover:duration-1000  cursor-pointer"> </i></a>
+   
+</div>
+   
+
+
+            
+    <script>
+        // nav bar area
+     let res_nav = document.querySelector(".list-less");
+        let menu_btn = document.querySelector(".menu");
+        let nav_end = document.querySelector(".menu-end");
+        
+        function nav() {
+          res_nav.style.display = "block";
+          menu_btn.style.display = "none";
+          nav_end.style.display = "block";
+        }
+        nav_end.addEventListener("click", () => {
+          menu_btn.style.display = "inline";
+          nav_end.style.display = "none";
+          res_nav.style.display = "none";
+        });
+
+// text animation area
+        const lines = [
+            { id: "line-1", text: "MY NAME IS", speed: 100 },
+            { id: "line-2", text: "HASSAN ZAHID KHAN", speed: 100 },
+
+            { id: "line-3", text: "I'M A WEB DEVELOPER", speed: 100 }
+        ];
+
+        let currentLine = 0;
+        let currentChar = 0;
+
+        function typeLine() {
+            if (currentLine < lines.length) {
+                const line = lines[currentLine];
+                const element = document.getElementById(line.id);
+
+                // Make the line visible
+                element.classList.remove("hidden");
+
+                if (currentChar < line.text.length) {
+                    element.textContent += line.text[currentChar];
+                    currentChar++;
+                    setTimeout(typeLine, line.speed); // Type the next character
+                } else {
+                    // Move to the next line
+                    currentLine++;
+                    currentChar = 0;
+                    setTimeout(typeLine, 500); // Pause before the next line
+                }
+            }
+        }
+
+        typeLine();
+
+        AOS.init();
+        </script>
+    
+</body>
+</html>

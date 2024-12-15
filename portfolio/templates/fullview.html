@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="max-w-[1000px] mx-auto">
+        <img src="{{data.image.url}} " alt="" class="w-full">
+
+        <div>
+            <h1 class="mt-16 text-4xl font-medium">{{data.title}} </h1>
+            <p class="text-lg mt-3">{{data.description}}</p>
+        </div>
+        
+       
+    <div>
+       <a href="{{data.link}} "> <button class="border-2 border-gray-300 px-6 py-2 bg-yellow-300 my-8 rounded-sm hover:shadow-lg "> Source Code</button></a>
+    </div>
+
+
+
+    </div>
+    
+    
+</body>
+</html>
